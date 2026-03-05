@@ -1,0 +1,31 @@
+{
+  "product_id": "AV-XeQLWuC1rwyj_gbP5",
+  "top_aspects": [
+    {
+      "aspect": "stick",
+      "sentiment": "negative",
+      "score": -0.1882
+    },
+    {
+      "aspect": "fire stick",
+      "sentiment": "negative",
+      "score": -0.1882
+    }
+  ],
+  "pros": [],
+  "cons": [
+    {
+      "point": "Poor stick",
+      "evidence": "instantly noticed the difference in quality when i switched from the regular fire stick to the fire tv with 4k.",
+      "source_review": "Really cool device! Instantly noticed the difference in quality when I switched from the regular Fire Stick to the Fire TV with 4k."
+    },
+    {
+      "point": "Poor fire stick",
+      "evidence": "instantly noticed the difference in quality when i switched from the regular fire stick to the fire tv with 4k.",
+      "source_review": "Really cool device! Instantly noticed the difference in quality when I switched from the regular Fire Stick to the Fire TV with 4k."
+    }
+  ],
+  "summary": "Based on 4 reviews for product AV-XeQLWuC1rwyj_gbP5 (average rating 5.0/5): Common complaints include the stick, fire stick.",
+  "confidence": 0.2,
+  "review_count": 4
+}

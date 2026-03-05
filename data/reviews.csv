@@ -1,0 +1,40 @@
+product_id,review_text,rating,review_date
+B001,The battery life on this laptop is absolutely incredible. I can work for 10 hours without needing to charge.,5,2025-01-15
+B001,Screen quality is amazing with vibrant colors. The display is bright and sharp even in direct sunlight.,5,2025-01-20
+B001,The keyboard feels cheap and the keys are too small for comfortable typing. Very disappointing keyboard layout.,2,2025-02-01
+B001,Battery lasts all day which is perfect for travel. The charger is also compact and lightweight.,4,2025-02-05
+B001,Excellent screen resolution and color accuracy. Great for photo editing and watching movies.,5,2025-02-10
+B001,The keyboard is mushy and unresponsive. I make so many typos because of the poor key travel.,1,2025-02-15
+B001,Sound quality from the speakers is surprisingly good for a laptop this thin. Clear and loud audio.,4,2025-02-20
+B001,Battery performance degrades quickly after a few months. Started at 10 hours now barely gets 6.,2,2025-03-01
+B001,The trackpad is smooth and responsive. Multi-touch gestures work flawlessly.,4,2025-03-05
+B001,Screen has terrible viewing angles. Colors wash out if you tilt it even slightly.,2,2025-03-10
+B001,Build quality feels premium with the aluminum chassis. Very sturdy and elegant design.,5,2025-03-15
+B001,The fan noise is unbearable when running any demanding application. Gets very loud.,1,2025-03-20
+B001,Camera quality is poor for video calls. Very grainy in low light conditions.,2,2025-04-01
+B001,Performance is stellar with the latest processor. Handles multitasking like a champ.,5,2025-04-05
+B001,The laptop runs extremely hot under load. Uncomfortable to use on your lap.,2,2025-04-10
+B002,These wireless earbuds have phenomenal sound quality with deep bass and clear highs.,5,2025-01-10
+B002,The noise cancellation on these earbuds is top-notch. Blocks out everything on my commute.,5,2025-01-18
+B002,Comfort is an issue - they fall out of my ears during exercise. The fit is not secure enough.,2,2025-01-25
+B002,Battery life is disappointing. Only lasts about 3 hours on a single charge.,1,2025-02-01
+B002,The bluetooth connection drops frequently when I walk around. Very unstable connectivity.,2,2025-02-10
+B002,Sound quality is rich and detailed. Best earbuds I have owned in this range.,5,2025-02-15
+B002,The charging case is sleek and compact. Fits perfectly in my pocket.,4,2025-02-22
+B002,Noise cancellation works well for office environments but struggles with loud outdoor noise.,3,2025-03-01
+B002,The microphone quality is terrible for phone calls. People can barely hear me.,1,2025-03-08
+B002,Comfortable enough for long listening sessions. The silicone tips are soft and gentle.,4,2025-03-15
+B002,Bass response is incredible for such small drivers. Really punchy and satisfying low end.,5,2025-03-22
+B002,Touch controls are too sensitive. I keep accidentally pausing music when adjusting the fit.,2,2025-04-01
+B003,This blender is incredibly powerful. It crushes ice and frozen fruit with no effort at all.,5,2025-01-05
+B003,The motor is loud enough to wake up the entire house. Extremely noisy during operation.,2,2025-01-12
+B003,Cleanup is a breeze since all parts are dishwasher safe. Very convenient design.,5,2025-01-20
+B003,The blades are razor sharp and blend everything to a perfectly smooth consistency.,5,2025-01-28
+B003,Build quality feels cheap with the plastic pitcher. I worry it will crack over time.,2,2025-02-05
+B003,The motor burned out after only 3 months of regular use. Very poor durability.,1,2025-02-12
+B003,Multiple speed settings give you great control over the texture of your blends.,4,2025-02-20
+B003,The lid does not seal properly and liquids splash out during blending. Very messy.,1,2025-02-28
+B003,Compact size fits easily on my countertop without taking up too much space.,4,2025-03-05
+B003,The pulse function is excellent for making chunky salsas and dips.,4,2025-03-12
+B004,Very small dataset product - only one review. Screen is nice.,4,2025-06-01
+B004,Decent performance overall.,3,2025-06-15

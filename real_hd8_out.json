@@ -1,0 +1,61 @@
+{
+  "product_id": "AVqkIhwDv8e3D1O-lebb",
+  "top_aspects": [
+    {
+      "aspect": "book",
+      "sentiment": "positive",
+      "score": 0.3801
+    },
+    {
+      "aspect": "screen",
+      "sentiment": "positive",
+      "score": 0.444
+    },
+    {
+      "aspect": "game",
+      "sentiment": "positive",
+      "score": 0.4256
+    },
+    {
+      "aspect": "apps",
+      "sentiment": "positive",
+      "score": 0.3685
+    },
+    {
+      "aspect": "gift",
+      "sentiment": "positive",
+      "score": 0.5431
+    }
+  ],
+  "pros": [
+    {
+      "point": "Good book",
+      "evidence": "have been pleased with my purchase of the fire hd8 as it's video quality is great when viewing espn3 netflix youtube tutorials.the ability to easily load and read my saved textbooks within the amazon kindle app is fantastic for a fraction of the price for an ipad.",
+      "source_review": "Have been pleased with my purchase of the Fire HD8 as it's video quality is great when viewing ESPN3/Netflix/YouTube Tutorials.The ability to easily load and read my saved textbooks within the Amazon Kindle App is fantastic for a fraction of the price for an IPAD. : )"
+    },
+    {
+      "point": "Good screen",
+      "evidence": "love the larger screen the quick processing and downloads, the great hd visuals, and most importantly all of my previous pictures and music files were easily transferred accessed by this new device.",
+      "source_review": "This is an upgrade tablet from my first Kindle Fire that I purchased 5 years ago. Love the larger screen the quick processing and downloads, the great HD visuals, and most importantly all of my previous pictures and music files were easily transferred/accessed by this new device. Love that this Fire has a front and rear camer too, my old Fire only had a front facing camera. Granted this is not an iPad, but I don't want or need all an iPad does. And I definitely don't want to spend hundreds of dollars on a device just because it is cool. My Fire tablet does everything I need or want and it costed under $99.00. I am one satisfied and pleased customer."
+    },
+    {
+      "point": "Good game",
+      "evidence": "i was looking for and cost effective solution to satisfy my childrens desires to have there own smartphone to play games.i like the parental controls, to limit certain actions and downloads.",
+      "source_review": "I was looking for and cost effective solution to satisfy my childrens desires to have there own SmartPhone to play Games.I like the Parental controls, to limit certain actions and downloads."
+    },
+    {
+      "point": "Good apps",
+      "evidence": "purchased on black fridaypros - great price even off sale very powerful and fast with quad core processors amazing soundwell builtcons -amazon ads, amazon need this to subsidize the tablet and will remove the adds if you pay them 15.inability to access other apps except the ones from amazon.",
+      "source_review": "Purchased on Black FridayPros - Great Price (even off sale)Very powerful and fast with quad core processors Amazing soundWell builtCons -Amazon ads, Amazon need this to subsidize the tablet and will remove the adds if you pay them $15.Inability to access other apps except the ones from Amazon. There is a way which I was able to accomplish to add the Google Play storeNet this is a great tablet for the money"
+    },
+    {
+      "point": "Good gift",
+      "evidence": "great gift easy to use and she loves being able to take it anywhere",
+      "source_review": "Great gift easy to use and she loves being able to take it anywhere"
+    }
+  ],
+  "cons": [],
+  "summary": "Based on 797 reviews for product AVqkIhwDv8e3D1O-lebb (average rating 4.6/5): Reviewers praised the book, screen, game, apps, gift.",
+  "confidence": 1.0,
+  "review_count": 797
+}

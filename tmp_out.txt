@@ -1,0 +1,31 @@
+{
+  "product_id": "B001",
+  "top_aspects": [
+    {
+      "aspect": "quality",
+      "sentiment": "positive",
+      "score": 0.2376
+    },
+    {
+      "aspect": "keyboard",
+      "sentiment": "neutral",
+      "score": -0.0102
+    },
+    {
+      "aspect": "travel",
+      "sentiment": "neutral",
+      "score": 0.0476
+    }
+  ],
+  "pros": [
+    {
+      "point": "Good quality",
+      "evidence": "screen quality is amazing with vibrant colors.",
+      "source_review": "Screen quality is amazing with vibrant colors. The display is bright and sharp even in direct sunlight."
+    }
+  ],
+  "cons": [],
+  "summary": "Based on 15 reviews for product B001 (average rating 3.3/5): Reviewers praised the quality.",
+  "confidence": 0.75,
+  "review_count": 15
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Insights Intelligence — 3D Dashboard</title>
+  <meta name="description"
+    content="Zero-Hallucination AI Analytics. Evidence-grounded product review insights powered by NLP." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Three.js 3D Canvas (z-index: 0) -->
+  <canvas id="three-canvas"></canvas>
+
+  <!-- 2D UI Overlay (z-index: 10) -->
+  <div id="app">
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+      <div class="nav-logo">
+        <span class="logo-icon">◆</span>
+        <span class="logo-text">Product Insights</span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#demo">Live Demo</a>
+        <a href="http://localhost:8001/docs" target="_blank">API Docs</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="features">
+      <div class="hero-badge">✦ AI-Powered Review Intelligence</div>
+      <h1 class="hero-title">
+        Product Insights<br />
+        <span class="gradient-text">Intelligence</span>
+      </h1>
+      <p class="hero-subtitle">
+        Zero-Hallucination AI Analytics&nbsp;•&nbsp;Evidence-Grounded Insights
+      </p>
+
+      <!-- Search Bar -->
+      <div class="search-container" id="demo">
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Enter Product ID (e.g., A001)" autocomplete="off" />
+          <button id="search-btn" class="search-btn">
+            Generate Insights
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+      <div class="stat-card">
+        <div class="stat-number" id="stat-products">42</div>
+        <div class="stat-label">Products Indexed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" id="stat-reviews">34,659</div>
+        <div class="stat-label">Reviews Analyzed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Evidence-Backed</div>
+      </div>
+    </section>
+
+    <!-- Loading State -->
+    <section class="loading-section" id="loading-section" style="display:none;">
+      <div class="loading-spinner"></div>
+      <p class="loading-text">Analyzing reviews…</p>
+    </section>
+
+    <!-- Results Panel -->
+    <section class="results-panel" id="results-panel" style="display:none;">
+
+      <!-- Header -->
+      <div class="results-header">
+        <div class="results-title-row">
+          <h2 class="results-title">
+            <span class="results-icon">★</span>
+            Insight Report: <span id="result-product-id">—</span>
+          </h2>
+          <div class="confidence-badge" id="confidence-badge">—</div>
+        </div>
+        <p class="results-meta">
+          Based on <span id="result-review-count">0</span> verified reviews
+        </p>
+      </div>
+
+      <!-- Aspects -->
+      <div class="aspects-row" id="aspects-row"></div>
+
+      <!-- Pros & Cons -->
+      <div class="pros-cons-grid">
+        <div class="evidence-column pros-column">
+          <h3 class="column-title pros-title">▲ Key Strengths</h3>
+          <div id="pros-list"></div>
+        </div>
+        <div class="evidence-column cons-column">
+          <h3 class="column-title cons-title">▼ Identified Weaknesses</h3>
+          <div id="cons-list"></div>
+        </div>
+      </div>
+
+      <!-- Summary -->
+      <div class="summary-card" id="summary-card">
+        <h3 class="summary-title">📝 AI Summary</h3>
+        <p class="summary-text" id="summary-text"></p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Powered by <strong>Zero-Hallucination Engine™</strong></p>
+    </footer>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

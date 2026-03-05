@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Insights Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent-primary: #38bdf8;
+            --accent-secondary: #818cf8;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --success: #10b981;
+            --danger: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(129, 140, 248, 0.15) 0%, transparent 40%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        #product-search {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        #product-search:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            display: none;
+            /* Hidden until search */
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .badge-positive {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+
+        .badge-negative {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        .summary-content {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .aspect-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .aspect-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .aspect-item:last-child {
+            border-bottom: none;
+        }
+
+        .aspect-name {
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .pro-con-grid {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .pro-con-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .point-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .point-label {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .evidence {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--accent-primary);
+        }
+
+        .loading-spinner {
+            display: none;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left-color: var(--accent-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .suggestion-chip {
+            padding: 0.4rem 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .suggestion-chip:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo">ReviewInsights</h1>
+            <p class="subtitle">AI-powered granular sentiment analysis for any product.</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="product-search" placeholder="Enter Product ID (e.g., B001 or copy from below)..."
+                autocomplete="off">
+            <div id="product-suggestions" class="suggestions">
+                <!-- Suggestions will be injected here -->
+            </div>
+        </div>
+
+        <div id="loading" class="loading-spinner">
+            <div class="spinner"></div>
+        </div>
+
+        <div id="results" class="results-grid">
+            <!-- Summary & Confidence -->
+            <div class="card">
+                <h3>Executive Summary</h3>
+                <div id="summary" class="summary-content"></div>
+                <div style="margin-top: auto;">
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Confidence Score: <span id="confidence"
+                            style="font-weight: 700;"></span></p>
+                    <div
+                        style="height: 6px; width: 100%; background: rgba(255,255,255,0.1); border-radius: 3px; margin-top: 0.5rem;">
+                        <div id="confidence-bar"
+                            style="height: 100%; border-radius: 3px; transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aspects -->
+            <div class="card">
+                <h3>Vibe Check (Aspects)</h3>
+                <div id="aspects-list" class="aspect-list"></div>
+            </div>
+
+            <!-- Pros & Cons -->
+            <div class="pro-con-grid">
+                <div class="card">
+                    <h3 style="color: var(--success); margin-bottom: 1.5rem;">✨ Key Pros</h3>
+                    <div id="pros-list"></div>
+                </div>
+                <div class="card">
+                    <h3 style="color: var(--danger); margin-bottom: 1.5rem;">⚠️ Key Cons</h3>
+                    <div id="cons-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('product-search');
+        const resultsGrid = document.getElementById('results');
+        const loading = document.getElementById('loading');
+        const suggestionsDiv = document.getElementById('product-suggestions');
+
+        // Fetch initial products for suggestions
+        async function loadProductSuggestions() {
+            try {
+                const response = await fetch('/api/v1/products', {
+                    headers: { 'Authorization': 'Bearer test-api-key' }
+                });
+                const ids = await response.json();
+                const displayIds = ids.slice(0, 6); // Just show a few
+
+                suggestionsDiv.innerHTML = displayIds.map(id =>
+                    `<span class="suggestion-chip" onclick="executeSearch('${id}')">${id}</span>`
+                ).join('');
+            } catch (err) {
+                console.error("Failed to load products", err);
+            }
+        }
+
+        async function executeSearch(productId) {
+            productId = productId || searchInput.value.trim();
+            if (!productId) return;
+
+            searchInput.value = productId;
+            loading.style.display = 'flex';
+            resultsGrid.style.display = 'none';
+
+            try {
+                const response = await fetch(`/api/v1/insights/${productId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Bearer test-api-key'
+                    }
+                });
+
+                if (!response.ok) throw new Error('Product not found');
+                const data = await response.json();
+                renderResults(data);
+            } catch (err) {
+                alert(err.message);
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        function renderResults(data) {
+            // Summary
+            document.getElementById('summary').textContent = data.summary;
+            document.getElementById('confidence').textContent = (data.confidence * 100).toFixed(0) + '%';
+            document.getElementById('confidence-bar').style.width = (data.confidence * 100) + '%';
+            document.getElementById('confidence-bar').style.background =
+                data.confidence > 0.7 ? 'var(--success)' : data.confidence > 0.4 ? 'var(--accent-primary)' : 'var(--danger)';
+
+            // Aspects
+            const aspectsDiv = document.getElementById('aspects-list');
+            aspectsDiv.innerHTML = data.top_aspects.map(a => `
+                <div class="aspect-item">
+                    <span class="aspect-name">${a.aspect}</span>
+                    <span class="status-badge badge-${a.sentiment}">${a.sentiment}</span>
+                </div>
+            `).join('') || '<p style="color: var(--text-secondary);">No clear aspects identified.</p>';
+
+            // Pros
+            const prosDiv = document.getElementById('pros-list');
+            prosDiv.innerHTML = data.pros.map(p => `
+                <div class="point-item">
+                    <div class="point-label">✅ ${p.point}</div>
+                    <div class="evidence">"${p.evidence}"</div>
+                </div>
+            `).join('') || '<p style="color: var(--text-secondary);">No specific pros found.</p>';
+
+            // Cons
+            const consDiv = document.getElementById('cons-list');
+            consDiv.innerHTML = data.cons.map(c => `
+                <div class="point-item">
+                    <div class="point-label">❌ ${c.point}</div>
+                    <div class="evidence">"${c.evidence}"</div>
+                </div>
+            `).join('') || '<p style="color: var(--text-secondary);">No specific cons found.</p>';
+
+            resultsGrid.style.display = 'grid';
+            resultsGrid.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') executeSearch();
+        });
+
+        loadProductSuggestions();
+    </script>
+</body>
+
+</html>
